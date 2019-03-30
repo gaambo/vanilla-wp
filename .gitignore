@@ -1,0 +1,24 @@
+# WordPress
+public/*
+!public/wp-config-sample.php
+!public/wp-content
+public/wp-content/*
+!public/wp-content/themes
+public/wp-content/themes/*
+!public/wp-content/themes/vanilla
+public/wp-content/themes/vanilla/assets/*
+!public/wp-content/themes/vanilla/assets/.gitkeep
+
+
+# Composer
+vendor/*
+!vendor/.gitkeep
+
+# Node
+node_modules/*
+!node_modules/.gitkeep
+
+# IDE specific directories
+.vscode
+.idea
+

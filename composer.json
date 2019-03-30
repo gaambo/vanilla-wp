@@ -1,0 +1,40 @@
+{
+  "name": "gaambo/vanilla-wp",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate for vanilla WordPress installations with modern development tools and src directory for theme assets.",
+  "homepage": "https://github.com/gaambo/vanilla-wp",
+  "authors": [
+    {
+			"name": "Fabian Todt",
+			"email": "fabian@fabiantodt.at",
+			"homepage": "https://fabiantodt.at"
+		}
+  ],
+  "keywords": [
+		"wordpress",
+		"wp",
+		"docker"
+	],
+	"support": {
+		"issues": "https://github.com/gaambo/vanilla-wp/issues"
+	},
+  "config": {
+    "preferred-install": "dist"
+  },
+  "repositories": [],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0.2"
+  },
+  "extra": {
+    "wordpress-install-dir": "public"
+  },
+  "scripts": {
+    "test": [
+      "phpcs"
+    ]
+  }
+}
