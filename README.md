@@ -17,8 +17,8 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
 - PHP linting with [PSR2 Standards](https://www.php-fig.org/psr/psr-2/) via [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer)
 - Deploying via [Deployer](https://deployer.org/) (coming soon)
 - [Snippets](https://github.com/gaambo/vanilla-wp/wiki/Snippets) for often used tools and plugins (e.g. installing of WordPress premium plugins like ACF Pro)
-- A Src Directory for theme assets plus a gulpfile for building the assets. 
-  
+- A Src Directory for theme assets plus a gulpfile for building the assets.
+
 ## Requirements
 
 - PHP >= 7.2
@@ -34,18 +34,27 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    $ cd website-dir && rm -rf .git
    $ git init
    ```
-2. Install dependencies (incl. WordPress)
+2. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
+   ```sh
+   $ .\build\wpcli.bat core download --path='./public'
+   ```
+   Then run `.\build\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
+3. Install dependencies
    ```sh
    $ composer install
    $ npm install
    ```
-3. Add theme(s) in `public/wp-content/themes/` as you would for a normal WordPress site. 
-4. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
-5. If developing a custom theme or plugin which you want to have JavaScript linting available exclude it in `.eslintignore`.
-6. If developing a custom theme or plugin which you want to have Style (CSS/SCSS) linting available exclude it in `.stylelintignore`.
-7. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
-8. Set the document root on your webserver to the public folder: `/path/to/site/public/`
-9. Access WordPress admin at `https://example.com/wp-admin/`
+4. Install plugins:
+   ```sh
+   $ ./build/wpcli.sh plugin install autodescription
+   ```
+5. Add theme(s) in `public/wp-content/themes/` as you would for a normal WordPress site.
+6. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
+7. If developing a custom theme or plugin which you want to have JavaScript linting available exclude it in `.eslintignore`.
+8. If developing a custom theme or plugin which you want to have Style (CSS/SCSS) linting available exclude it in `.stylelintignore`.
+9. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
+10. Set the document root on your webserver to the public folder: `/path/to/site/public/`
+11. Access WordPress admin at `https://example.com/wp-admin/`
 
 ## Documentation
 

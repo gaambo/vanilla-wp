@@ -1,6 +1,5 @@
 # WordPress
 public/*
-!public/wp-config-sample.php
 !public/wp-content
 public/wp-content/*
 !public/wp-content/themes
