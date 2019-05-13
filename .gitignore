@@ -7,6 +7,10 @@ public/wp-content/themes/*
 !public/wp-content/themes/vanilla
 public/wp-content/themes/vanilla/assets/*
 !public/wp-content/themes/vanilla/assets/.gitkeep
+!public/wp-content/mu-plugins
+public/wp-content/mu-plugins/*
+!public/wp-content/mu-plugins/core-functionality
+!public/wp-content/mu-plugins/bedrock-autoloader.php
 
 
 # Composer
