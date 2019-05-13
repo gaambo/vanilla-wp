@@ -34,27 +34,31 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    $ cd website-dir && rm -rf .git
    $ git init
    ```
-2. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
+2. Start Docker containers
+   ```sh
+   docker-compose -f "docker.compose.development.yml" up -d --build
+   ```
+3. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
    ```sh
    $ .\build\wpcli.bat core download --path='./public'
    ```
    Then run `.\build\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
-3. Install dependencies
+4. Install dependencies
    ```sh
    $ composer install
    $ npm install
    ```
-4. Install plugins:
+5. Install plugins:
    ```sh
    $ ./build/wpcli.sh plugin install autodescription
    ```
-5. Add theme(s) in `public/wp-content/themes/` as you would for a normal WordPress site.
-6. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
-7. If developing a custom theme or plugin which you want to have JavaScript linting available exclude it in `.eslintignore`.
-8. If developing a custom theme or plugin which you want to have Style (CSS/SCSS) linting available exclude it in `.stylelintignore`.
-9. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
-10. Set the document root on your webserver to the public folder: `/path/to/site/public/`
-11. Access WordPress admin at `https://example.com/wp-admin/`
+6. Add theme(s) in `public/wp-content/themes/` as you would for a normal WordPress site.
+7. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
+8. If developing a custom theme or plugin which you want to have JavaScript linting available exclude it in `.eslintignore`.
+9.  If developing a custom theme or plugin which you want to have Style (CSS/SCSS) linting available exclude it in `.stylelintignore`.
+10. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
+11. Set the document root on your webserver to the public folder: `/path/to/site/public/`
+12. Access WordPress admin at `https://example.com/wp-admin/`
 
 ## Documentation
 
