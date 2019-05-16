@@ -46,9 +46,14 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
 5. Install Theme  
    My [_g Theme](https://github.com/gaambo/_g-wp-theme) works perfectly with this boilerplate. I suggest you use this one:
    ```sh
-   $ git clone git@github.com:gaambo/_g-wp-theme.git public/wp-content/themes/${themename}
-   $ composer install -d public/wp-content/themes/${themename}
+   $ cd public/wp-content/themes/${themename}
+   $ git clone git@github.com:gaambo/_g-wp-theme.git .
+   $ rm -rf .git
+   $ npm install
+   $ composer install
    ```
+   Then exclude the path in gitignore: `!public/wp-content/themes/${themename}`
+
 
    All other themes can be installed as usual (unzip in public/wp-content/themes, upload via FTP,...). You can also use wpcli:
    ```sh
@@ -58,7 +63,9 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    My [Core Functionality Plugin](https://github.com/gaambo/wp-core-functionality-plugin) works perfectly with this boilerplate. I suggst you use it to for complete site-projects to put all site-specific functionality in it: 
    ```sh 
    $ git clone git@github.com:gaambo/wp-core-functionality-plugin.git public/wp-content/mu-plugins/core-functionality
+   $ rm -rf .git
    ```
+   Then exclude the path in gitignore: `!public/wp-content/mu-plugins/core-functionality`
 7. Install plugins:
    ```sh
    $ ./build/wpcli.sh plugin install autodescription
