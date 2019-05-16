@@ -43,10 +43,10 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    ```sh
    $ composer install
    ```
-5. Install Theme
+5. Install Theme  
    My [_g Theme](https://github.com/gaambo/_g-wp-theme) works perfectly with this boilerplate. I suggest you use this one:
    ```sh
-   $ git clone https://github.com/gaambo/_g-wp-theme public/wp-content/themes/${themename}
+   $ git clone git@github.com:gaambo/_g-wp-theme.git public/wp-content/themes/${themename}
    $ composer install -d public/wp-content/themes/${themename}
    ```
 
@@ -54,14 +54,19 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    ```sh
    $ ./build/wpcli.sh plugin theme twentynineteen
    ```
-6. Install plugins:
+6. Install Core Functionality Plugin (optional)  
+   My [Core Functionality Plugin](https://github.com/gaambo/wp-core-functionality-plugin) works perfectly with this boilerplate. I suggst you use it to for complete site-projects to put all site-specific functionality in it: 
+   ```sh 
+   $ git clone git@github.com:gaambo/wp-core-functionality-plugin.git public/wp-content/mu-plugins/core-functionality
+   ```
+7. Install plugins:
    ```sh
    $ ./build/wpcli.sh plugin install autodescription
    ```
-7. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
-8.  If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
-9.  Set the document root on your webserver to the public folder: `/path/to/site/public/`
-10. Access WordPress admin at `https://example.com/wp-admin/`
+8. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
+9.  If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
+10.  Set the document root on your webserver to the public folder: `/path/to/site/public/`
+11. Access WordPress admin at `https://example.com/wp-admin/`
 
 ## Documentation
 
