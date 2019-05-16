@@ -2,7 +2,6 @@ version: "3.1"
 
 services:
   wordpress:
-    container_name: wp
     build:
       context: ./build
       dockerfile: Dockerfile
