@@ -44,7 +44,7 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    $ composer install
    ```
 5. Install Theme  
-   My [_g Theme](https://github.com/gaambo/_g-wp-theme) works perfectly with this boilerplate. I suggest you use this one:
+   My [\_g Theme](https://github.com/gaambo/_g-wp-theme) works perfectly with this boilerplate. I suggest you use this one:
    ```sh
    $ cd public/wp-content/themes/${themename}
    $ git clone git@github.com:gaambo/_g-wp-theme.git .
@@ -54,25 +54,26 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    ```
    Then exclude the path in gitignore: `!public/wp-content/themes/${themename}`
 
+All other themes can be installed as usual (unzip in public/wp-content/themes, upload via FTP,...). You can also use wpcli:
 
-   All other themes can be installed as usual (unzip in public/wp-content/themes, upload via FTP,...). You can also use wpcli:
-   ```sh
-   $ ./build/wpcli.sh plugin theme twentynineteen
-   ```
+```sh
+$ ./util/wpcli.sh plugin theme twentynineteen
+```
+
 6. Install Core Functionality Plugin (optional)  
-   My [Core Functionality Plugin](https://github.com/gaambo/wp-core-functionality-plugin) works perfectly with this boilerplate. I suggst you use it to for complete site-projects to put all site-specific functionality in it: 
-   ```sh 
+   My [Core Functionality Plugin](https://github.com/gaambo/wp-core-functionality-plugin) works perfectly with this boilerplate. I suggst you use it to for complete site-projects to put all site-specific functionality in it:
+   ```sh
    $ git clone git@github.com:gaambo/wp-core-functionality-plugin.git public/wp-content/mu-plugins/core-functionality
    $ rm -rf .git
    ```
    Then exclude the path in gitignore: `!public/wp-content/mu-plugins/core-functionality`
 7. Install plugins:
    ```sh
-   $ ./build/wpcli.sh plugin install autodescription
+   $ ./util/wpcli.sh plugin install autodescription
    ```
 8. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
-9.  If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
-10.  Set the document root on your webserver to the public folder: `/path/to/site/public/`
+9. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
+10. Set the document root on your webserver to the public folder: `/path/to/site/public/`
 11. Access WordPress admin at `https://example.com/wp-admin/`
 
 ## Documentation
