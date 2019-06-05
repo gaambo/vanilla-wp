@@ -27,7 +27,8 @@
     "php": ">=7.1"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.0.2"
+    "squizlabs/php_codesniffer": "^3.0.2",
+    "gaambo/deployer-wordpress": "^1.0.1"
   },
   "extra": {},
   "scripts": {

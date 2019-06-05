@@ -1,0 +1,7 @@
+example.com:
+  stage: production
+  public_url: https://example.com
+  deploy_path: ~/
+  document_root: "{{release_path}}"
+  dump_path: ~/data/dumps
+  backup_path: ~/data/backups
