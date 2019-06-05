@@ -8,6 +8,8 @@ public/wp-content/themes/*
 public/wp-content/mu-plugins/*
 !public/wp-content/mu-plugins/bedrock-autoloader.php
 
+# Data
+/data
 
 # Composer
 vendor/*

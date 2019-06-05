@@ -3,7 +3,7 @@ version: "3.1"
 services:
   wordpress:
     build:
-      context: ./build
+      context: ./util
       dockerfile: Dockerfile
     restart: always
     volumes:
