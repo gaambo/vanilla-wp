@@ -26,7 +26,7 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
 1. Create a new project  
    Clone git repository
    ```sh
-   $ git clone https://github.com/gaambo/vanilla-wp website-dir
+   $ git clone git@github.com:gaambo/vanilla-wp.git website-dir
    $ cd website-dir && rm -rf .git
    $ git init
    ```
@@ -36,9 +36,9 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    ```
 3. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
    ```sh
-   $ .\build\wpcli.bat core download --path='./public'
+   $ .\util\wpcli.bat core download --path='./public'
    ```
-   Then run `.\build\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
+   Then run `.\util\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
 4. Install dependencies
    ```sh
    $ composer install
