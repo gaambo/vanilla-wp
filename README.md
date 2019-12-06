@@ -82,6 +82,8 @@ $ ./util/wpcli.sh plugin theme twentynineteen
 
 Before running any tasks you have to configure SSH acces to the hosts defined in `util/hosts.yml` via `~/.ssh/config`.
 
+Run scripts in `scripts` dir via `.\util\wpcli.bat eval-file ./scripts/roles-capabilities.php` (on server).
+
 ## Documentation
 
 Documentation can be found in our [GitHub wiki](https://github.com/gaambo/vanilla-wp/wiki)

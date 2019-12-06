@@ -16,6 +16,11 @@ require_once 'tasks/mu-plugins.php';
 require_once 'tasks/database.php';
 require_once 'tasks/files.php'; // required uplods, plugins & wp functions
 
+require_once 'utils/files.php';
+require_once 'utils/rsync.php';
+use function \Gaambo\DeployerWordpress\Utils\Files\pushFiles;
+use function \Gaambo\DeployerWordpress\Utils\Files\getRemotePath;
+
 // CONFIGURATION
 // see gaambos Deployer Wordpress Recipes README.md and src/set.php for other options to overwrite
 // and https://deployer.org/docs/configuration.html for default configuration
@@ -25,6 +30,10 @@ set('release_name', function () {
     return date('YmdHis'); // you could also use the composer.json version here
 });
 
+set('composer_options', 'install --no-dev');
+
+// overwrite path to uploads dir which normally sits in shared folder
+set('uploads/path', '{{release_path}}');
 
 // hosts
 inventory('util/hosts.yml'); // !!! COPY `hosts.example.yml` in util directory!!!
@@ -45,12 +54,25 @@ set('mu-plugin/name', 'core-functionality'); // !!! PLEASE EDIT !!!
 
 // TASKS
 
+// Pushes migration scripts to server
+task('scripts:push', function () {
+    upload('./scripts', '~/migration/');
+})->desc('Pushes migration scripts to server');
+
 // Overwrite deployment with rsync (instead of git)
-task('deploy:update_code', ['wp:push', 'themes:push', 'mu-plugins:push', 'plugins:push']); // does not include uploads & database (see below)
+// only push custom code - and update everything else on prod server
+// you can also add wp:push and plugins:push tasks to push wp core files and plugins
+task('deploy:update_code', ['themes:push', 'mu-plugins:push']);
 
 // install theme vendors and run theme assets (npm) build script LOCAL
+task('theme:assets:vendors:rebuild', function () {
+    // rebuilds binaries (In case of change of OS - eg windows to bash)
+    \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild jpegtran-bin');
+    \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild optipng-bin');
+})->local();
 // set theme:assets tasks to run local
 task('theme:assets:vendors')->local();
+after('theme:assets:vendors', 'theme:assets:vendors:rebuild');
 task('theme:assets:build')->local();
 before('deploy:update_code', 'theme:assets');
 
@@ -74,9 +96,7 @@ task('deploy', [
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
-    'deploy:shared',
     'deploy:writable',
-    'deploy:symlink',
     'deploy:unlock',
     'cleanup',
 ])->desc('Deploy WordPress Site');
