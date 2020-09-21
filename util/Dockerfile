@@ -1,4 +1,4 @@
-FROM wordpress:4-php7.2-apache
+FROM wordpress:5-php7.3-apache
 
 RUN apt-get update &&\
   apt-get install --no-install-recommends --assume-yes --quiet ca-certificates curl git &&\
