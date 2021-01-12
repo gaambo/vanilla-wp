@@ -1,6 +1,8 @@
 <?php
 /**
- * A Deployer recipe to be used with vanilla WordPress installations (with a normal WP installation = not Bedrock/Cobblestone)
+ * A Deployer recipe to be used with vanilla WordPress installations (with a normal WP installation = not Composer-driven)
+ * Based on gaambo/deployer-wordpress/recipes/deploy.php
+ * Uses rsync to deploy instead of a git repository
  * For more Information see it's README.md
  */
 
@@ -18,8 +20,6 @@ require_once 'tasks/files.php'; // required uplods, plugins & wp functions
 
 require_once 'utils/files.php';
 require_once 'utils/rsync.php';
-use function \Gaambo\DeployerWordpress\Utils\Files\pushFiles;
-use function \Gaambo\DeployerWordpress\Utils\Files\getRemotePath;
 
 // CONFIGURATION
 // see gaambos Deployer Wordpress Recipes README.md and src/set.php for other options to overwrite
@@ -36,21 +36,21 @@ set('composer_options', 'install --no-dev');
 set('uploads/path', '{{release_path}}');
 
 // hosts
-inventory('util/hosts.yml'); // !!! COPY `hosts.example.yml` in util directory!!!
+inventory('util/hosts.yml'); // TODO: COPY `hosts.example.yml` in util directory
 
 // use localhost host to configure some local paths
 localhost()
     ->stage('dev')
     ->set('bin/wp', __DIR__ . '/util/wpcli.sh')
-    ->set('public_url', 'http://test.local') // !!! PLEASE EDIT !!!
+    ->set('public_url', 'http://test.local') // TODO: Edit local host URL
     ->set('dump_path', 'data/db_dumps')
     ->set('release_path', __DIR__ . '/public')
     ->set('document_root', __DIR__ . '/public')
     ->set('backup_path', __DIR__ . '/data/backups');
 
 // custom theme & mu-plugin options
-set('theme/name', 'THEME'); // !!! PLEASE EDIT !!!
-set('mu-plugin/name', 'core-functionality'); // !!! PLEASE EDIT !!!
+set('theme/name', 'THEME'); // TODO: Edit theme slug
+set('mu-plugin/name', 'core-functionality'); // TODO: Edit mu-plugin slug
 
 // TASKS
 
@@ -65,16 +65,17 @@ task('scripts:push', function () {
 task('deploy:update_code', ['themes:push', 'mu-plugins:push']);
 
 // install theme vendors and run theme assets (npm) build script LOCAL
-task('theme:assets:vendors:rebuild', function () {
-    // rebuilds binaries (In case of change of OS - eg windows to bash)
-    \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild jpegtran-bin');
-    \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild optipng-bin');
-})->local();
-// set theme:assets tasks to run local
 task('theme:assets:vendors')->local();
-after('theme:assets:vendors', 'theme:assets:vendors:rebuild');
 task('theme:assets:build')->local();
 before('deploy:update_code', 'theme:assets');
+// // rebuilds binaries (In case of change of OS - eg windows to bash)
+// task('theme:assets:vendors:rebuild', function () {
+//
+//     \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild jpegtran-bin');
+//     \Gaambo\DeployerWordpress\Utils\Npm\runCommand('{{document_root}}/{{themes/dir}}/{{theme/name}}', 'rebuild optipng-bin');
+// })->local();
+// after('theme:assets:vendors', 'theme:assets:vendors:rebuild');
+// set theme:assets tasks to run local
 
 // install theme vendors (composer) on server
 after('deploy:update_code', 'theme:vendors'); // defined in tasks/theme.php
@@ -96,7 +97,7 @@ task('deploy', [
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
-    'deploy:writable',
+    // 'deploy:writable',
     'deploy:unlock',
     'cleanup',
 ])->desc('Deploy WordPress Site');

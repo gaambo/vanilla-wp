@@ -1,4 +1,4 @@
-FROM wordpress:5-php7.3-apache
+FROM wordpress:5-php7.4-apache
 
 RUN apt-get update &&\
   apt-get install --no-install-recommends --assume-yes --quiet ca-certificates curl git &&\
@@ -10,3 +10,5 @@ RUN pecl install -f xdebug \
 
 # enable xdebug profiling:
 # RUN echo "xdebug.profiler_enable = 1 \nxdebug.profiler_output_name = xdebug.out.%t \nxdebug.profiler_output_dir = /var/www/html" >> /usr/local/etc/php/conf.d/xdebug.ini;
+
+COPY ./php-conf.ini /usr/local/etc/php/conf.d/
