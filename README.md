@@ -30,20 +30,32 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    $ cd website-dir && rm -rf .git
    $ git init
    ```
-2. Start Docker containers
+2. Set file Permissions (when on WSL2 or Linux)
+   1. Choose which user should WordPress/the server run as and you want to edit the files (in most cases it's your user)
+   2. Create a `.env` file in the root directory to set the the user
+         ```env
+         DOCKER_USER=0 # output from $(id -u)
+         DOCKER_USER_GROUP=0 # output from $(id -g)
+         ```
+   3. Ensure the project-folder (and public) belong to this user
+         ```bash
+            chown -R 1000:1000 ./public
+         ```
+   [More Information](https://github.com/gaambo/vanilla-wp/issues/3)
+3. Start Docker containers
    ```sh
    docker-compose -f "docker.compose.development.yml" up -d --build
    ```
-3. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
+4. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
    ```sh
    $ .\util\wpcli.bat core download --path='./public'
    ```
    Then run `.\util\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
-4. Install dependencies
+5. Install dependencies
    ```sh
    $ composer install
    ```
-5. Install Theme  
+6. Install Theme  
    My [\_g Theme](https://github.com/gaambo/_g-wp-theme) works perfectly with this boilerplate. I suggest you use this one:
    ```sh
    $ cd public/wp-content/themes/${themename}

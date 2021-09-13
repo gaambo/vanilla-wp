@@ -1,3 +1,4 @@
+/.env
 # WordPress
 public/*
 !public/wp-content

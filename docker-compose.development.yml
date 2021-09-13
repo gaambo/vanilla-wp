@@ -6,11 +6,19 @@ services:
       context: ./util
       dockerfile: Dockerfile
     restart: always
+    user: "${DOCKER_USER}:${DOCKER_USER_GROUP}"
     volumes:
       - ./public:/var/www/html
+      # Authentication
+      # passwd/group should be mounted into any container
+      # needing to share the user/group IDs
+      # - /etc/group:/etc/group:ro
+      # - /etc/passwd:/etc/passwd:ro
     ports:
       - 80:80
     environment:
+      APACHE_RUN_USER: "#${DOCKER_USER}"
+      APACHE_RUN_GROUP: "#${DOCKER_USER_GROUP}"
       WORDPRESS_DB_PASSWORD: test123
   mysql:
     image: mysql:5.7
@@ -37,7 +45,7 @@ services:
       - .:/var/www/html
     depends_on:
       - wordpress
-    user: "33:33"
+    user: "${DOCKER_USER}:${DOCKER_USER_GROUP}"
     entrypoint: wp
 volumes:
   db-data:
