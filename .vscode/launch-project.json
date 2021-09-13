@@ -12,9 +12,6 @@
       "hostname": "localhost",
       "pathMappings": {
         "/var/www/html": "${workspaceRoot}/public"
-      },
-      "xdebugSettings": {
-        "max_data": -1
       }
     }
   ]

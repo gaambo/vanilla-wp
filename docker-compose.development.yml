@@ -12,7 +12,6 @@ services:
       - 80:80
     environment:
       WORDPRESS_DB_PASSWORD: test123
-      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1
   mysql:
     image: mysql:5.7
     restart: always
