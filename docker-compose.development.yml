@@ -20,25 +20,18 @@ services:
       APACHE_RUN_USER: "#${DOCKER_USER}"
       APACHE_RUN_GROUP: "#${DOCKER_USER_GROUP}"
       WORDPRESS_DB_PASSWORD: test123
+    depends_on:
+      - mysql
   mysql:
     image: mysql:5.7
     restart: always
+    ports:
+      - 3306:3306
     volumes:
       - db-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: wordpress
       MYSQL_ROOT_PASSWORD: test123
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - mysql:db
-    ports:
-      - 8181:80
-    environment:
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: test123
-    depends_on:
-      - mysql
   wpcli:
     image: wordpress:cli-2
     volumes:
