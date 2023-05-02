@@ -24,7 +24,7 @@ import('util/deploy.yml');
 localhost()
     ->set('dump_path', 'data/db_dumps')
     ->set('public_url', "{{local_url}}")
-    ->set('bin/wp', __DIR__ . '/util/wpcli.sh')
+    ->set('bin/wp', __DIR__ . '/util/cli.sh wp')
     ->set('backup_path', __DIR__ . '/data/backups')
     ->set('release_path', __DIR__ . '/public')
     ->set('deploy_path', __DIR__ . '/public')
