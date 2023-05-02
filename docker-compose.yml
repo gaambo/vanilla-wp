@@ -1,0 +1,47 @@
+version: "3.1"
+
+services:
+  wordpress:
+    build:
+      context: ./util
+      dockerfile: Dockerfile
+    restart: always
+    user: "${DOCKER_USER}:${DOCKER_USER_GROUP}"
+    volumes:
+      - ./public:/var/www/html
+      # Authentication
+      # passwd/group should be mounted into any container
+      # needing to share the user/group IDs
+      # - /etc/group:/etc/group:ro
+      # - /etc/passwd:/etc/passwd:ro
+    ports:
+      - 80:80
+    environment:
+      APACHE_RUN_USER: "#${DOCKER_USER}"
+      APACHE_RUN_GROUP: "#${DOCKER_USER_GROUP}"
+      WORDPRESS_DB_PASSWORD: test123
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: test123
+  cli:
+    build:
+      context: ./util
+      dockerfile: Dockerfile-CLI
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - wordpress
+    user: "${DOCKER_USER}:${DOCKER_USER_GROUP}"
+    environment:
+      - WP_CLI_CACHE_DIR=/tmp/wpcli-cache
+volumes:
+  db-data:

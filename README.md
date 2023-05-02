@@ -44,13 +44,13 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
    [More Information](https://github.com/gaambo/vanilla-wp/issues/3)
 3. Start Docker containers
    ```sh
-   docker-compose -f "docker.compose.development.yml" up -d --build
+   docker compose -f "docker.compose.development.yml" up -d --build
    ```
 4. Install WordPress ([See Wiki](https://github.com/gaambo/vanilla-wp/wiki/WP-CLI))
    ```sh
-   $ .\util\wpcli.bat core download --path='./public'
+   $ .\util\cli.sh wp core download --path='./public'
    ```
-   Then run `.\util\wpcli.bat core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
+   Then run `.\util\cli.sh wp core install` with the [according arguments](https://developer.wordpress.org/cli/commands/core/install/) or just open up the website in your browser to start WordPress famous 5 minute installation.
 5. Install dependencies
    ```sh
    $ composer install
@@ -69,7 +69,7 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
 All other themes can be installed as usual (unzip in public/wp-content/themes, upload via FTP,...). You can also use wpcli:
 
 ```sh
-$ ./util/wpcli.sh plugin theme twentynineteen
+$ ./util/cli.sh wp plugin theme twentynineteen
 ```
 
 6. Install Core Functionality Plugin (optional)  
@@ -81,7 +81,7 @@ $ ./util/wpcli.sh plugin theme twentynineteen
    Then exclude the path in gitignore: `!public/wp-content/mu-plugins/core-functionality`
 7. Install plugins:
    ```sh
-   $ ./util/wpcli.sh plugin install autodescription
+   $ ./util/cli.sh wp plugin install autodescription
    ```
 8. If developing a custom theme or plugin which you want to include in the repository exclude it in `.gitignore`.
 9. If developing a custom theme or plugin which you want to have PHP linting available include it in `phpcs.xml` via `<include-pattern>PATH</include-pattern>`.
@@ -92,9 +92,9 @@ $ ./util/wpcli.sh plugin theme twentynineteen
 
 [PHP Deployer](https://deployer.org/) in conjunction with [gaambos WordPress recipes](https://github.com/gaambo/deployer-wordpress) is used. A documentation of all available tasks can be found in the `README.md` of the package. The `deploy.php` is based on the default/vanilla deploy recipe from this package and edits localhost settings for setting document root and using Docker for WP CLI.
 
-Before running any tasks you have to configure SSH acces to the hosts defined in `util/hosts.yml` via `~/.ssh/config`.
+Before running any tasks you have to configure SSH acces to the hosts defined in `util/deploy.yml` via `~/.ssh/config`.
 
-Run scripts in `scripts` dir via `.\util\wpcli.bat eval-file ./scripts/roles-capabilities.php` (on server).
+Run scripts in `scripts` dir via `.\util\cli.sh wp eval-file ./scripts/roles-capabilities.php` (on server).
 
 ## Documentation
 
