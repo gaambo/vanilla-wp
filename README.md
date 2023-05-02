@@ -18,7 +18,7 @@ WordPress boilerplate for vanilla WordPress installations with modern developmen
 
 ## Requirements
 
-- PHP >= 7.2
+- PHP >= 8.0
 - Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
 ## Installation
