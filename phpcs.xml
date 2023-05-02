@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<ruleset name="Vanilla WP (PSR2)">
-  <description>PHP Coding Standards based on PSR2</description>
+<ruleset name="Vanilla WP (PSR12)">
+  <description>PHP Coding Standards based on PSR12</description>
 
-  <!-- Use PSR-2 as a base -->
-  <rule ref="PSR2"/>
+  <!-- Use PSR-12 as a base -->
+  <rule ref="PSR12"/>
 
   <!-- Scan only PHP files -->
   <arg name="extensions" value="php"/>
@@ -11,8 +11,59 @@
   <!-- Ignore WordPress and Composer dependencies -->
   <exclude-pattern>public/wp-content/plugins</exclude-pattern>
   <exclude-pattern>public/wp-content/mu-plugins</exclude-pattern>
+  <exclude-pattern>public/wp-admin</exclude-pattern>
+  <exclude-pattern>public/wp-includes</exclude-pattern>
   <exclude-pattern>vendor/</exclude-pattern>
 
+  <!-- Some handy WordPress rules which do not conflict with PSR12 - taken from WordPress-Core and WordPress-Extra ruleset -->
+  <rule ref="WordPress.DB.RestrictedFunctions"/>
+  <rule ref="WordPress.DB.RestrictedClasses"/>
+  <rule ref="WordPress.Security.EscapeOutput"/>
 
+  <!-- Covers rule: Escaping should be done as close to the time of the query
+          as possible, preferably by using $wpdb->prepare(). -->
+  <rule ref="WordPress.DB.PreparedSQL"/>
+  <!-- Rule: in $wpdb->prepare - %s is used for string placeholders and %d is used for integer
+          placeholders. Note that they are not 'quoted'! -->
+  <rule ref="WordPress.DB.PreparedSQLPlaceholders"/>
+
+  <!-- Prevent some typical mistakes people make accidentally.
+          https://github.com/WordPress/WordPress-Coding-Standards/pull/1777 -->
+  <rule ref="WordPress.CodeAnalysis.EscapedNotTranslated"/>
+
+  <!-- Rule: create_function() function, which internally performs an eval(),
+          is deprecated in PHP 7.2 and has been removed in PHP 8.0. ... these must not be used. -->
+  <rule ref="WordPress.PHP.RestrictedPHPFunctions"/>
+  <rule ref="WordPress.PHP.DevelopmentFunctions"/>
+  <rule ref="WordPress.PHP.DiscouragedPHPFunctions"/>
+  <rule ref="WordPress.WP.DeprecatedFunctions"/>
+  <rule ref="WordPress.WP.DeprecatedClasses"/>
+  <rule ref="WordPress.WP.DeprecatedParameters"/>
+  <rule ref="WordPress.WP.DeprecatedParameterValues"/>
+  <rule ref="WordPress.WP.AlternativeFunctions"/>
+  <rule ref="WordPress.WP.DiscouragedConstants"/>
+  <rule ref="WordPress.WP.DiscouragedFunctions"/>
+  <rule ref="WordPress.PHP.DontExtract"/>
+  <!-- Scripts & style should be enqueued.
+          https://github.com/WordPress/WordPress-Coding-Standards/issues/35 -->
+  <rule ref="WordPress.WP.EnqueuedResources"/>
+  <!-- Detect incorrect or risky use of the `ini_set()` function.
+          https://github.com/WordPress/WordPress-Coding-Standards/issues/1447 -->
+  <rule ref="WordPress.PHP.IniSet"/>
+  <!-- Check enqueue and register styles and scripts to have version and in_footer parameters explicitly set.
+          https://github.com/WordPress/WordPress-Coding-Standards/issues/1146 -->
+  <rule ref="WordPress.WP.EnqueuedResourceParameters"/>
+  <!-- Check for correct usage of the WP i18n functions. -->
+  <rule ref="WordPress.WP.I18n"/>
+
+  <!-- Check for correct spelling of WordPress. -->
+  <rule ref="WordPress.WP.CapitalPDangit"/>
+
+  <!-- Use the appropriate DateTime functions.
+          See: https://github.com/WordPress/WordPress-Coding-Standards/issues/1713 -->
+  <rule ref="WordPress.DateTime.RestrictedFunctions"/>
+
+  <!-- Don't use current_time() to retrieve a timestamp. -->
+  <rule ref="WordPress.DateTime.CurrentTimeTimestamp"/>
 
 </ruleset>
