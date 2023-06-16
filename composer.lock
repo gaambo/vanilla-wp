@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "596ee8ba9e5d0bcfa39b2afc3782b6d7",
+    "content-hash": "fa67734bbf8332b00753867580cc2e1d",
     "packages": [],
     "packages-dev": [
         {
             "name": "deployer/deployer",
-            "version": "v7.2.1",
+            "version": "v7.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/deployer.git",
-                "reference": "61314b16a776da3ba332ee0390e999a361431e52"
+                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/deployer/zipball/61314b16a776da3ba332ee0390e999a361431e52",
-                "reference": "61314b16a776da3ba332ee0390e999a361431e52",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
+                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
                 "shasum": ""
             },
             "bin": [
@@ -48,24 +48,24 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-01T20:16:58+00:00"
+            "time": "2023-04-05T09:24:30+00:00"
         },
         {
             "name": "gaambo/deployer-wordpress",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gaambo/deployer-wordpress.git",
-                "reference": "d282fdfd40aa97506da0ff4f71fd3cfc85f4b68c"
+                "reference": "c4e201f4a18569b03f7f3aed15f33ca31f6d79ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gaambo/deployer-wordpress/zipball/d282fdfd40aa97506da0ff4f71fd3cfc85f4b68c",
-                "reference": "d282fdfd40aa97506da0ff4f71fd3cfc85f4b68c",
+                "url": "https://api.github.com/repos/gaambo/deployer-wordpress/zipball/c4e201f4a18569b03f7f3aed15f33ca31f6d79ab",
+                "reference": "c4e201f4a18569b03f7f3aed15f33ca31f6d79ab",
                 "shasum": ""
             },
             "require": {
-                "deployer/deployer": "^7.2",
+                "deployer/deployer": "^7.3",
                 "php": "^8.0|^7.3"
             },
             "type": "library",
@@ -88,9 +88,9 @@
             "homepage": "https://github.com/gaambo/deployer-wordpress",
             "support": {
                 "issues": "https://github.com/gaambo/deployer-wordpress/issues",
-                "source": "https://github.com/gaambo/deployer-wordpress/tree/v2.0.0"
+                "source": "https://github.com/gaambo/deployer-wordpress/tree/v3.0.0"
             },
-            "time": "2023-03-20T15:48:06+00:00"
+            "time": "2023-06-07T06:45:28+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -156,7 +156,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": ">=7.4"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
