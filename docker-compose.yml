@@ -45,6 +45,10 @@ services:
       - wordpress
     user: "${DOCKER_USER}:${DOCKER_USER_GROUP}"
     environment:
-      - WP_CLI_CACHE_DIR=/tmp/wpcli-cache
+      WP_CLI_CACHE_DIR: /tmp/wpcli-cache
+      WORDPRESS_DB_PASSWORD: test123
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_HOST: mysql
 volumes:
   db-data:
