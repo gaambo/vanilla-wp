@@ -19,7 +19,9 @@ services:
     environment:
       APACHE_RUN_USER: "#${DOCKER_USER}"
       APACHE_RUN_GROUP: "#${DOCKER_USER_GROUP}"
-      WORDPRESS_DB_PASSWORD: test123
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_HOST: mysql
     depends_on:
       - mysql
   mysql:
