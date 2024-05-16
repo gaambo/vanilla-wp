@@ -8,4 +8,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 USER www-data
 
 # copy custom php-configuration (max file size + xdebug)
-COPY ./php-conf-cli.ini /usr/local/etc/php/conf.d/
+COPY ./php-conf.ini /usr/local/etc/php/conf.d/

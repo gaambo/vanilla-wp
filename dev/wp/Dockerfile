@@ -1,4 +1,4 @@
-FROM wordpress:6-php8.0-apache
+FROM wordpress:6-php8.1-apache
 
 RUN apt-get update &&\
   apt-get install --no-install-recommends --assume-yes --quiet ca-certificates curl git &&\

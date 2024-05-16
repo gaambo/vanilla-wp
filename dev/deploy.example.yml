@@ -9,6 +9,6 @@ hosts:
     public_url: https://test.dev
     hostname: test.dev
     deploy_path: "~/public_html"
-    release_path: "{{deploy_path}}/diemengls.at" # fixed directory, no symlinks
+    release_path: "{{deploy_path}}/example.com" # fixed directory, no symlinks
     dump_path: ~/data/dumps
     backup_path: ~/data/backups

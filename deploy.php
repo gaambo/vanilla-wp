@@ -32,9 +32,9 @@ import('util/deploy.yml');
 localhost()
     ->set('public_url', "{{local_url}}")
     ->set('dump_path', 'data/db_dumps')
-    ->set('bin/wp', __DIR__ . '/util/cli.sh wp')
+    ->set('bin/wp', __DIR__ . '/dev/cli.sh wp')
     ->set('public_host', 'wp.local')
-    ->set('backup_path', __DIR__ . '/data/backups')
+    ->set('backup_path', 'data/backups')
     ->set('deploy_path', __DIR__)
     ->set('release_path', __DIR__ . '/public')
     // set current_path to hardcoded release_path on local so release_or_current_path works; {{release_path}} does not work here?
