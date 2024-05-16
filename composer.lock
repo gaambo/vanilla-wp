@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa67734bbf8332b00753867580cc2e1d",
+    "content-hash": "208328ae642ea4d1094ddff87a2aade5",
     "packages": [],
     "packages-dev": [
         {
             "name": "deployer/deployer",
-            "version": "v7.3.1",
+            "version": "v7.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deployphp/deployer.git",
-                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3"
+                "reference": "b438dc22545ab2ecc67d79c80c7a79c156de3599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deployphp/deployer/zipball/c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
-                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/b438dc22545ab2ecc67d79c80c7a79c156de3599",
+                "reference": "b438dc22545ab2ecc67d79c80c7a79c156de3599",
                 "shasum": ""
             },
             "bin": [
@@ -48,20 +48,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-05T09:24:30+00:00"
+            "time": "2024-04-17T20:55:49+00:00"
         },
         {
             "name": "gaambo/deployer-wordpress",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gaambo/deployer-wordpress.git",
-                "reference": "c4e201f4a18569b03f7f3aed15f33ca31f6d79ab"
+                "reference": "48710593af51e2fbec00a50ba674d3255b543efb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gaambo/deployer-wordpress/zipball/c4e201f4a18569b03f7f3aed15f33ca31f6d79ab",
-                "reference": "c4e201f4a18569b03f7f3aed15f33ca31f6d79ab",
+                "url": "https://api.github.com/repos/gaambo/deployer-wordpress/zipball/48710593af51e2fbec00a50ba674d3255b543efb",
+                "reference": "48710593af51e2fbec00a50ba674d3255b543efb",
                 "shasum": ""
             },
             "require": {
@@ -88,66 +88,9 @@
             "homepage": "https://github.com/gaambo/deployer-wordpress",
             "support": {
                 "issues": "https://github.com/gaambo/deployer-wordpress/issues",
-                "source": "https://github.com/gaambo/deployer-wordpress/tree/v3.0.0"
+                "source": "https://github.com/gaambo/deployer-wordpress/tree/v3.1.0"
             },
-            "time": "2023-06-07T06:45:28+00:00"
-        },
-        {
-            "name": "squizlabs/php_codesniffer",
-            "version": "3.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ed8e00df0a83aa96acf703f8c2979ff33341f879"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ed8e00df0a83aa96acf703f8c2979ff33341f879",
-                "reference": "ed8e00df0a83aa96acf703f8c2979ff33341f879",
-                "shasum": ""
-            },
-            "require": {
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
-                "ext-xmlwriter": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
-            },
-            "bin": [
-                "bin/phpcs",
-                "bin/phpcbf"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Sherwood",
-                    "role": "lead"
-                }
-            ],
-            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
-            "keywords": [
-                "phpcs",
-                "standards",
-                "static analysis"
-            ],
-            "support": {
-                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
-                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
-                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
-            },
-            "time": "2023-02-22T23:07:41+00:00"
+            "time": "2023-06-21T09:28:13+00:00"
         }
     ],
     "aliases": [],

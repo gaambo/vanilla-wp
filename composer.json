@@ -27,7 +27,7 @@
         "php": ">=7.4"
     },
     "require-dev": {
-        "gaambo/deployer-wordpress": "^3.0.0"
+        "gaambo/deployer-wordpress": "^3.1"
     },
     "extra": {},
     "scripts": {}
